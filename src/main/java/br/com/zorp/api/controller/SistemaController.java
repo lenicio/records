@@ -15,7 +15,7 @@ public class SistemaController {
   public String listar() {
     String ret = "";
 
-    for (Usuario usuario : sistema.getUsuarios()) {''
+    for (Usuario usuario : sistema.getUsuarios()) {
       ret += usuario.exibirDetalhes() + "\n";
     }
 
@@ -26,12 +26,20 @@ public class SistemaController {
   public String adicionar(@RequestBody UsuarioDto dado) {
     sistema.adicionar(
         new Usuario(
+            sistema.getIdUsuario(),
             dado.nome(),
             dado.idade(),
             dado.tipoUsuario()
         ));
 
     return "Usuário adicionado com sucesso!";
+  }
+
+
+  @DeleteMapping
+  public String deletar(@RequestParam int id) {
+    sistema.deletar(id);
+    return "Usuário deletado com sucesso!";
   }
 
 }

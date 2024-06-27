@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public class Usuario {
+  private int id;
   private String nome;
   private int idade;
   private TipoUsuario tipoUsuario;
@@ -15,6 +16,7 @@ public class Usuario {
 
   public String exibirDetalhes() {
     return "-------------------------" +
+        "\nID: " + getId() +
         "\nNome: " + getNome() +
         "\nIdade: " + getIdade() +
         "\nTipo: " + getTipoUsuario() +
