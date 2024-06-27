@@ -15,11 +15,11 @@ public class SistemaController {
   public String listar() {
     String ret = "";
 
-    ret += "Mensagem\n";
-    ret += "Mensagem1\n";
+    for (Usuario usuario : sistema.getUsuarios()) {''
+      ret += usuario.exibirDetalhes() + "\n";
+    }
 
     return ret;
-
   }
 
   @PostMapping
